@@ -10,66 +10,60 @@ buildscript {
     }
 
     dependencies {
-        classpath plugin.gradle
-        classpath plugin.kotlin_plugin_gradle
-        classpath plugin.plugin_publish
+        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
     }
 }
 
-apply plugin: 'java-gradle-plugin'
-apply plugin: 'kotlin'
+
+
+plugins {
+    id "com.gradle.plugin-publish" version "1.2.1"
+    id 'java-gradle-plugin'
+}
+
 apply plugin: 'groovy'
-apply plugin: 'com.gradle.plugin-publish'
-apply plugin: 'maven-publish'
+apply plugin: 'kotlin'
+
+
+dependencies {
+    implementation "com.android.tools.build:gradle:$versions.gradle"
+    implementation "com.squareup:kotlinpoet:$versions.kotlinpoet"
+}
 
 repositories {
     mavenCentral()
     google()
 }
 
+
+
 version = "$publish.version"
 group = "$publish.group"
 
+
 gradlePlugin {
+    website = publish.website
+    vcsUrl = publish.website
+
     plugins {
         jniSecret {
             id = "$publish.jniSecret.id"
             displayName = "JniSecret Plugin"
             description = "Store your secret using the Android NDK"
             implementationClass = "$publish.jniSecret.implementationClass"
+            tags.addAll('android', 'jni', 'secret', 'plugin', 'ndk', 'security')
         }
     }
 }
+
 
 publishing {
-
     publications {
         jnisecret(MavenPublication) {
-            groupId = 'io.github.cedmart1decath'
-            artifactId = 'jni-secret'
-            version = "0.0.6-SNAPSHOT"
+            groupId "$publish.group"
+            version "$publish.version"
             from components.java
-
-            pom {
-                description = 'Blabla'
-            }
         }
     }
-
-    repositories {
-        mavenLocal()
-    }
-}
-
-pluginBundle {
-    website = publish.website
-    vcsUrl = publish.website
-    description = 'Store your secret using the Android NDK'
-    tags = ['android', 'jni', 'secret', 'plugin', 'ndk', 'security']
-}
-
-dependencies {
-    implementation lib.kotlin_std_lib
-    implementation lib.gradle
-    implementation lib.kotlinpoet
 }

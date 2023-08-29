@@ -48,8 +48,11 @@ open class CreateCppTask: DefaultTask() {
             .toMap()
             .let {
                 val mutableMap = it.toMutableMap()
-                configuration.productFlavors.findByName(flavor)?.secrets?.forEach { entry ->
-                    mutableMap[entry.key] = entry.value
+
+                flavor?.let {f ->
+                    configuration.productFlavors.findByName(f)?.secrets?.forEach { entry ->
+                        mutableMap[entry.key] = entry.value
+                    }
                 }
                 mutableMap
             }

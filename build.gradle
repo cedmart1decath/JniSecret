@@ -9,8 +9,8 @@ buildscript {
 
     }
     dependencies {
-        classpath plugin.gradle
-        classpath plugin.kotlin_plugin_gradle
+        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 
     }
 }
@@ -19,7 +19,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 

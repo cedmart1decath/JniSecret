@@ -5,7 +5,6 @@ import io.github.cedmart1decath.jnisecret.configuration.JniSecretConfiguration
 import io.github.cedmart1decath.jnisecret.exceptions.NoConfigurationException
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.*
-import org.gradle.work.InputChanges
 import java.io.File
 
 abstract class CreateJniInterfaceTask: DefaultTask() {
@@ -22,7 +21,7 @@ abstract class CreateJniInterfaceTask: DefaultTask() {
     var outDir: File? = null
 
     @TaskAction
-    fun createJniInterface(inputChanged: InputChanges) {
+    fun createJniInterface() {
         val safeConfiguration = configuration ?: throw NoConfigurationException()
         saveJniInterface(safeConfiguration)
     }

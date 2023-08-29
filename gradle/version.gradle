@@ -1,27 +1,13 @@
 ext.versions = [
         gradle : '7.4.2',
-        kotlin_version: '1.6.21',
-        maven_publish : "3.6.1",
-        plugin_publish : "0.18.0",
+        kotlin: '1.6.21',
         kotlinpoet: "1.10.2"
-]
-
-ext.plugin = [
-        gradle : "com.android.tools.build:gradle:$versions.gradle",
-        kotlin_plugin_gradle : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version",
-        plugin_publish : "com.gradle.publish:plugin-publish-plugin:$versions.plugin_publish"
-]
-
-ext.lib = [
-        gradle : "com.android.tools.build:gradle:$versions.gradle",
-        kotlin_std_lib : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin_version",
-        kotlinpoet: "com.squareup:kotlinpoet:$versions.kotlinpoet"
 ]
 
 ext.publish = [
         group : 'io.github.cedmart1decath',
         artifactId : 'jni-secret',
-        version : '0.0.6',
+        version : '0.0.6-SNAPSHOT',
         website : 'https://github.com/cedmart1decath/JniSecret',
 
         jniSecret : [
