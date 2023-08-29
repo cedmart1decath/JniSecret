@@ -19,7 +19,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "io.github.quantones.harpocrate:jni-secret:0.0.5"
+    classpath "io.github.cedmart1decath:jni-secret:0.0.6"
   }
 }
 ```
@@ -27,7 +27,7 @@ buildscript {
 In your project build.gradle:
 
 ```
-apply plugin: "io.github.quantones.harpocrate.jni-secret"
+apply plugin: "io.github.cedmart1decatch.jni-secret"
 ```
 
 ## Under the hood
@@ -164,7 +164,7 @@ After configuring your build.gradle, click on Make Project and all items will be
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    Log.d("MainActivity", "Key 1 ${MyClass().key_1()}")
-    Log.d("MainActivity", "Key 2 ${MyClass().key_2()}")
+    Log.d("MainActivity", "Key 1 ${MyClass.key_1()}")
+    Log.d("MainActivity", "Key 2 ${MyClass.key_2()}")
 }
 ```

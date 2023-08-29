@@ -41,6 +41,26 @@ gradlePlugin {
     }
 }
 
+publishing {
+
+    publications {
+        jnisecret(MavenPublication) {
+            groupId = 'io.github.cedmart1decath'
+            artifactId = 'jni-secret'
+            version = "0.0.6-SNAPSHOT"
+            from components.java
+
+            pom {
+                description = 'Blabla'
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
+}
+
 pluginBundle {
     website = publish.website
     vcsUrl = publish.website
