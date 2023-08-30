@@ -9,9 +9,6 @@ ext.publish = [
         artifactId : 'jni-secret',
         version : '0.0.6-SNAPSHOT',
         website : 'https://github.com/cedmart1decath/JniSecret',
-
-        jniSecret : [
-                id : 'io.github.cedmart1decath.jni-secret',
-                implementationClass : 'io.github.cedmart1decath.jnisecret.JniSecretPlugin'
-        ]
+        id : 'io.github.cedmart1decath.jni-secret',
+        implementationClass : 'io.github.cedmart1decath.jnisecret.JniSecretPlugin'
 ]

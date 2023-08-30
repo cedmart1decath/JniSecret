@@ -36,11 +36,8 @@ repositories {
     google()
 }
 
-
-
 version = "$publish.version"
 group = "$publish.group"
-
 
 gradlePlugin {
     website = publish.website
@@ -48,15 +45,14 @@ gradlePlugin {
 
     plugins {
         jniSecret {
-            id = "$publish.jniSecret.id"
+            id = "$publish.id"
             displayName = "JniSecret Plugin"
             description = "Store your secret using the Android NDK"
-            implementationClass = "$publish.jniSecret.implementationClass"
+            implementationClass = "$publish.implementationClass"
             tags.addAll('android', 'jni', 'secret', 'plugin', 'ndk', 'security')
         }
     }
 }
-
 
 publishing {
     publications {
@@ -64,6 +60,13 @@ publishing {
             groupId "$publish.group"
             version "$publish.version"
             from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'localPluginRepository'
+            url = '../local-plugin-repository'
         }
     }
 }
